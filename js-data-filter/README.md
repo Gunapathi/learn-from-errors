@@ -1,6 +1,6 @@
 # Desc
 
-Filter Data using multiple input fields using JS Filter method
+Filter Data using multiple input fields using JS filter()
 
 # Demo Link
 

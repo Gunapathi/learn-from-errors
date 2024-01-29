@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gunapathi - Data Search table using JS</title>
+</head>
+
+<body>
+	<h2>Common field - Individual search using JS</h2>
+
+    <label for="nameInput">Name:</label>
+    <input type="text" id="nameInput" oninput="searchData()" placeholder="Enter name" />
+
+    <label for="ageInput">Age:</label>
+    <input type="text" id="ageInput" oninput="searchData()" placeholder="Enter age" />
+
+    <label for="cityInput">City:</label>
+    <input type="text" id="cityInput" oninput="searchData()" placeholder="Enter city" />
+
+	<br />
+	<hr />
+	<br />
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody id="dataBody"></tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>
