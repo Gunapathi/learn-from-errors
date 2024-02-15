@@ -16,16 +16,43 @@ mongoose.connect('mongodb://localhost:27017/mongooseBasic')
 
 async function run() {
     // const newUser = await user.save();
-    const newUser = await User.create({
-        name: "Guna",
-        age: 28,
-        hobbies: ['Sports', 'Music'],
-        address: {
-            street: '2nd street',
-        }
-    })
+    try {
+        const newUser = await User.create({
+            name: "Guna",
+            email: 'test@example.com',
+            age: 38,
+            hobbies: ['Sports', 'Music'],
+            address: {
+                street: '2nd street',
+            }
+        })
 
-    console.log(newUser);
+        // const findUser = await User.findById('65ce12ad719793f99b9b3612')
+        // const findUser = await User.find({ name: 'Guna' });
+        // const findUser = await User.findOne({ name: 'Guna' });
+        // const findUser = await User.exists({ name: 'Guna' });
+        // const findUser = await User.where('name').equals('Guna');
+        // const findUser = await User.where('age').gt(20).limit(1);
+        // const findUser = await User.where('_id').equals('65cbb2626fe63727b42acc8f').populate('bestFriend').limit(1);
+        // const findUser = await User.findOne({ name: 'Guna' })
+        // findUser.sayHi()
+        // const findUser = await User.findByName('Guna')
+        // const findUser = await User.find().byName('Guna')
+        // const findUser = await User.findById('65ce20c66e199033db085b57')
+        // console.log('findUser', findUser.namedEmail);
+        const findUser = await User.findById('65ce20c66e199033db085b57')
+        findUser.name = 'Gunapathi';
+        findUser.age = 12;
+        await findUser.save();
+
+        console.log('findUser', findUser);
+        /* 
+        updateOne or updateMany functions will not check valiation as it's based on mongo client,
+        so we need to use .save() method from mongoose to save the data with validation
+         */
+    } catch (err) {
+        console.log(err.message)
+    }
 }
 
 run();
